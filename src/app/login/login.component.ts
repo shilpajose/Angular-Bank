@@ -8,16 +8,12 @@ import { Component } from '@angular/core';
 export class LoginComponent {
 data1="Account Number"
 
-login(){
+login(a:any,b:any){
+  console.log(a.value);
+  console.log(b.value);
   alert("Login clicked")
 }
-acnoChange(event:any){
-  console.log(event.target.value);
-  
-}
-pswdChange(event:any){
-  console.log(event.target.value);
-}
+
 
 }
 
