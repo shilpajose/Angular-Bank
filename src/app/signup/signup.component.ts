@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class SignupComponent {
 
+
+  constructor(private rou:Router){
+
+  }
+  create(){
+    // alert("acc created")
+    this.rou.navigateByUrl("")
+  }
+
 }
+
