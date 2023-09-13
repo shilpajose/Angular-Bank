@@ -4,10 +4,13 @@
       <i class="fa-solid fa-bars" id="btn"></i>
       <i class="fa-solid fa-times text-white" id="cancel"></i>
     </label> -->
-  <header>SIB</header>
+  <header>IB
+    <div><h5 class="text-center text-light ">Hello <i>{{name}}</i> Welcome to Indian bank</h5></div>
+
+  </header>
   <ul>
-    <li><a data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class='bx bxs-user'></i>View Profile</a></li>
-    <li><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bx-dollar'></i>Balance Check</a></li>
+    <li (click)="profileview()"><a data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class='bx bxs-user'></i>View Profile</a></li>
+    <li (click)="getbalance()"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bx-dollar'></i>Balance Check</a></li>
     <li><a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
           class='bx bx-money'></i>Money Transfer</a></li>
     <li><a href=""><i class='bx bx-notepad'></i>Account Statement</a></li>
@@ -15,7 +18,6 @@
     <li><a href=""><i class='bx bx-message-square-x'></i>Delete Account</a></li>
   </ul>
 </div>
-<div><h2 class="text-center text-light">{{data}}</h2></div>
 <!--modal for balance check--->
 <div class="modal fade text-dark text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -25,9 +27,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Hai <strong>Shilpa</strong>Welcome to Indian Bank.</p>
-        <p>Account No:1234</p>
-        <p>Your Account Balance is 1000000</p>
+        <p>Account Holder:{{name}}</p>
+        <p>Account No:{{acno}}</p>
+        <p>Your Account Balance is:{{balance}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -37,7 +39,7 @@
   </div>
 </div>
 
-<!-- MoneTransfer offcanvas -->
+<!-- MoneyTransfer offcanvas -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Money Transfer</h5>
@@ -46,7 +48,7 @@
   <div class="offcanvas-body">
     <form>
       <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Recipient Account Number" id="exampleInputEmail1"
+        <input type="email" class="form-control" placeholder="Recipient Account Number" id="exampleInputEmail1999"
           aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
@@ -66,12 +68,12 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Profile</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">My Profile</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Hello Shilpa</p>
-        <p>Account Number:1234</p>
+        <p>Hello {{name}}</p>
+        <p>Account Number:{{acno}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

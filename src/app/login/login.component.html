@@ -11,16 +11,18 @@
 <body>
     <!-- <img src="https://i.postimg.cc/xCLytMwy/pig.webp" alt=""> -->
     <div class="wrapper">
-        <form action="">
+        <form [formGroup]="loginForm">
             <h1>Login</h1>
             <div class="input-box">
-                <input [(ngModel)]="acno" type="text" id="acno" name="acno" [placeholder]="data1" required>
+                <input formControlName="acno" [(ngModel)]="acno" type="text" id="acno" name="acno" [placeholder]="data1" required>
                 <i class='bx bxs-user'></i>
             </div>
+            <div class="text-danger" *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched">Invalid Account Number(Only numbers)</div>
             <div class="input-box">
-                <input [(ngModel)]="psw" type="password" id="password" name="password" placeholder="Password" required>
+                <input formControlName="psw" [(ngModel)]="psw" type="password" id="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
+            <div class="text-danger" *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched">Incorrect password</div>
             <div class="remember-forgot">
                 <label for="">
                     <input type="checkbox">Remember Me
@@ -34,5 +36,4 @@
         </form>
     </div>
 </body>
-
 </html>

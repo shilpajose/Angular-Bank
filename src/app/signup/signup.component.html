@@ -1,24 +1,28 @@
 <body>
     <div class="wrapper">
-        <form action="">
+        <form [formGroup]="signupForm" action="">
             <h1>Signup</h1>
             <div class="input-box">
-                <input type="text" id="acno" name="acno" placeholder="Account Number" required>
+                <input formControlName="acno" type="text" id="acno1" name="acno" placeholder="Account Number" required>
                 <i class='bx bxs-user'></i>
             </div>
+            <div *ngIf="this.signupForm.get('acno')?.errors && this.signupForm.get('acno')?.touched" class="text-danger">Invalid Account Number(Only numbers)</div>
             <div class="input-box">
-                <input type="text" id="uname" name="uname" placeholder="UserName" required>
+                <input formControlName="uname" type="text" id="uname1" name="uname" placeholder="UserName" required>
                 <i class='bx bxs-user'></i>
             </div>
+            <div *ngIf="this.signupForm.get('uname')?.errors && this.signupForm.get('uname')?.touched" class="text-danger">Invalid userName</div>
             <div class="input-box">
-                <input type="password" id="pswd" name="password" placeholder="Password" required>
+                <input formControlName="psw" type="password" id="pswd1" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
+            <div *ngIf="this.signupForm.get('psw')?.errors && this.signupForm.get('psw')?.touched" class="text-danger">Invalid Password</div>
             <div class="input-box">
-                <input type="password" id="cpswd" name="confirmpassword" placeholder="Confirm Password" required>
+                <input formControlName="cpsw" type="password" id="cpswd1" name="confirmpassword" placeholder="Confirm Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
-            <button (click)="create()" type="submit" id="loginbtn" class="btn">Create</button>
+            <div *ngIf="pswCheck" class="text-danger">Pasword doesn't match</div>
+            <button (click)="signup()" type="submit" id="loginbtn" class="btn" name="signup">Signup</button>
         </form>
     </div>
 </body>
