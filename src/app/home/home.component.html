@@ -9,12 +9,12 @@
 
   </header>
   <ul>
-    <li (click)="profileview()"><a data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class='bx bxs-user'></i>View Profile</a></li>
+    <li (click)="getProfile()"><a data-bs-toggle="modal" data-bs-target="#exampleModal1"><i class='bx bxs-user'></i>Profile View</a></li>
     <li (click)="getbalance()"><a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bx bx-dollar'></i>Balance Check</a></li>
     <li><a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i
           class='bx bx-money'></i>Money Transfer</a></li>
-    <li><a href=""><i class='bx bx-notepad'></i>Account Statement</a></li>
-    <li><a href=""><i class='bx bx-log-out'></i>Logout</a></li>
+    <li><a routerLink="/bankstatement"><i class='bx bx-notepad'></i>Account Statement</a></li>
+    <li (click)="logout()"><a><i class='bx bx-log-out'></i>Logout</a></li>
     <li><a href=""><i class='bx bx-message-square-x'></i>Delete Account</a></li>
   </ul>
 </div>
@@ -42,23 +42,27 @@
 <!-- MoneyTransfer offcanvas -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Money Transfer</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel" class="text-info text-center">Money Transfer</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
+  <div class="text-center text-danger"><h5 [ngClass]="msgClr?'msgClrgreen':'msgClrred'">{{message}}</h5></div>
   <div class="offcanvas-body">
-    <form>
+    <form [formGroup]="moneyTransferform">
       <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Recipient Account Number" id="exampleInputEmail1999"
+        <input formControlName="rAcno" type="email" name="racno" class="form-control" placeholder="Recipient Account Number" id="exampleInputEmail1999"
           aria-describedby="emailHelp">
       </div>
+      <div class="text-danger" *ngIf="this.moneyTransferform.get('rAcno')?.errors && this.moneyTransferform.get('rAcno')?.touched">Invalid Account Number</div>
       <div class="mb-3">
-        <input type="email" class="form-control" placeholder="Amount" id="exampleInputEmail1"
+        <input formControlName="amnt" type="email" name="amnt" class="form-control" placeholder="Amount" id="exampleInputEmail1"
           aria-describedby="emailHelp">
       </div>
+      <div class="text-danger" *ngIf="this.moneyTransferform.get('amnt')?.errors && this.moneyTransferform.get('amnt')?.touched">Invalid Amount</div>
       <div class="mb-3">
-        <input type="password" class="form-control" placeholder="Password" id="exampleInputPassword1">
+        <input formControlName="psw" type="password" name="psw" class="form-control" placeholder="Password" id="exampleInputPassword1">
       </div>
-      <button type="submit" class="btn btn-primary text-center">Submit</button>
+      <div class="text-danger" *ngIf="this.moneyTransferform.get('psw')?.errors && this.moneyTransferform.get('psw')?.touched">Invalid password</div>
+      <button type="submit" (click)="MoneyTransfer()" class="btn btn-outline-primary text-center">Submit</button>
     </form>
   </div>
 </div>

@@ -83,3 +83,9 @@ label #cancel{
   margin-right: 70px;
   padding-right: 50px;
 }
+.msgClrgreen{
+  color: green;
+}
+.msgClrred{
+  color: red;
+}

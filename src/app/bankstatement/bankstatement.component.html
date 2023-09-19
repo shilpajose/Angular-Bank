@@ -1,0 +1,39 @@
+<div id="bankstatement">
+    <h1 class="text-center text-light">Bank Statement</h1>
+    <div id="button-group" class="btn-group  col-lg-2 col-md-2 col-sm-2 col-xs-2" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+        <label class="btn btn-outline-info" for="btnradio1">All</label>
+      
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+        <label class="btn btn-outline-info" for="btnradio2">Debit</label>
+      
+        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+        <label class="btn btn-outline-info" for="btnradio3">Credit</label>
+      </div>
+      <div *ngIf="spinner" class="text-center text-light pt-5"><i class="fa-solid fa-spinner fa-spin-pulse fa-4x"></i></div>
+    <div class="container w-100">
+      <table *ngIf="!spinner" class="table table-success table-striped pt-5 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+          <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Account Number</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of transactionArray,let j=index">
+                  <td>{{j+1}}</td>
+                  <td>{{i.type}}</td>
+                  <td>{{i.amount}}</td>
+                  <td>{{i.tacno}}</td>
+                  <td>{{i.date}}</td>
+              </tr>
+              
+            </tbody>
+        </table>
+    </div><br>
+      <button type="button" class="glow-on-hover" id="export">Download   <i class="fa-solid fa-download"></i></button>
+      <div><a id="backtohome" href="/home"><i class="fa-solid fa-circle-arrow-left"></i>Back to home</a></div>
+</div>

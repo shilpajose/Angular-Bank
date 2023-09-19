@@ -75,3 +75,9 @@ img{
     height: 360px;
     border-radius: 1%;
 }
+input[type=text]:focus {
+    border: 1px solid white;
+  }
+  input[type=password]:focus {
+    border: 1px solid white;
+  }

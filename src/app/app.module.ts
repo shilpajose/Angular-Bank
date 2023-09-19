@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { BankstatementComponent } from './bankstatement/bankstatement.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    DemoComponent
+    DemoComponent,
+    BankstatementComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

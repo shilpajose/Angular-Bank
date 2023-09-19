@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { DemoComponent } from './demo/demo.component';
+import { BankstatementComponent } from './bankstatement/bankstatement.component';
 
 const routes: Routes = [
   {path:"",component:LoginComponent},
   {path:"signup",component:SignupComponent},
   {path:"home",component:HomeComponent},
-  {path:"demo",component:DemoComponent}
+  {path:"demo",component:DemoComponent},
+  {path:"bankstatement",component:BankstatementComponent}
   
 ];
 

@@ -23,4 +23,16 @@ loginAccount(acno:any,psw:any){
 getBalance(acno:any){
   return this.http.get(`${this.baseUrl}/bankuser/balance/${acno}`)
 }
+
+//Api to money Transfer
+moneyTransferApi(sAcno:any,rAcno:any,amount:any,psw:any,date:any){
+  const bodyData = {sAcno,rAcno,amount,psw,date}
+  return this.http.post(`${this.baseUrl}/bankuser/money-transfer`,bodyData)
+}
+//api to get bank statement/ transaction history
+accountStatementApi(acno:any){
+  return this.http.get(`${this.baseUrl}/bankuser/account-statement/${acno}`)
+}
+
+
 }
